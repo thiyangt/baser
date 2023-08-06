@@ -6,6 +6,9 @@ format:
     toc_float: true
   pdf: default
   docx: default
+project:
+  type: website
+  output-dir: _site
 ---
 
 # Formatting
