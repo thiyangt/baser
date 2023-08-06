@@ -1,9 +1,11 @@
 ---
-title: "100 R functions from base R"
+title: "100 R functions without installing extra packages"
+author: "Thiyanga S. Talagala"
 format:
   html:
+    theme: journal
     toc: true
-    toc_float: true
+    toc_float: false
   pdf: default
   docx: default
 project:
@@ -13,7 +15,7 @@ project:
 
 # Formatting
 
-# `format`
+## `format`
 
 To format numbers or strings according to a specific format
 
@@ -38,7 +40,23 @@ values <- 10:100
 as.hexmode(values)
 ```
 
+# Common functions
 
+## append
+
+`x`: the vector the values are to be appended to
+
+`values`: values to be included in the modified vectors
+
+`after`: a subscript (index), after which the values are to be appended
+
+```{r}
+x1 <- seq(10, 50, by=10)
+x2 <- 1:3
+append(x1, values = x2, after = 3)
+```
+
+## 
 
 # Matrix
 
@@ -74,7 +92,23 @@ apply(mat, 2, max)
 apply(mat, 1, max)
 ```
 
-# Mathematical/ Statistical functions
+# Statistical functions
+
+## `table`
+
+Create a frequency table for a vector
+
+```{r}
+table(mtcars$cyl)
+```
+
+## IQR
+
+```{r}
+IQR(mtcars$mpg)
+```
+
+## `rank`
 
 ```{r}
 x <- c(1, 1, 2, 3, 10, 1, 100)
@@ -147,8 +181,4 @@ sample(data)
 sample(data, size = 5)
 sample(data, size = 5, replace = TRUE)
 sample(data, size = 5, replace = FALSE)
-
-
-
-
 ```
