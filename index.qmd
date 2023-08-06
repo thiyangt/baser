@@ -1,0 +1,151 @@
+---
+title: "100 R functions from base R"
+format:
+  html:
+    toc: true
+    toc_float: true
+  pdf: default
+  docx: default
+---
+
+# Formatting
+
+# `format`
+
+To format numbers or strings according to a specific format
+
+```{r}
+format(12.3456789, digits = 2)
+format(12.3456789, nsmall = 2)
+format(1.5:5.5, trim = TRUE)
+```
+
+```{r}
+df <- data.frame(id=c(1.1, 2.22, 3.333), letter=c("aaa", "bb", "c"))
+df
+format(df, justify = "left")
+```
+
+## `hexmode`
+
+Print integers in hexmode
+
+```{r}
+values <- 10:100
+as.hexmode(values)
+```
+
+
+
+# Matrix
+
+```{r}
+mat <- matrix(1:9, nrow =3)
+```
+
+## `det`
+
+Calucate the determinant of a square matrix
+
+```{r}
+base::det(mat)
+```
+
+## `lower.tri/ upper.tri `
+
+Check whether the elements belong to lower or upper triangle of a matrix
+
+```{r}
+base::lower.tri(mat)
+```
+
+```{r}
+base::upper.tri(mat)
+```
+
+## `apply`
+
+```{r}
+apply(mat, 2, mean)
+apply(mat, 2, max)
+apply(mat, 1, max)
+```
+
+# Mathematical/ Statistical functions
+
+```{r}
+x <- c(1, 1, 2, 3, 10, 1, 100)
+rank(x)
+```
+
+# Graphics
+
+## `boxplot`
+
+```{r}
+boxplot(mpg ~ cyl, data = mtcars, xlab = "Quantity of Cylinders",  
+        ylab = "Miles Per Gallon", main = "Boxplot")
+
+```
+
+
+```{r}
+boxplot(mpg ~ cyl, data = mtcars,   
+        xlab = "Quantity of Cylinders",  
+        ylab = "Miles Per Gallon",   
+        main = "Boxplot Example",  
+        notch = TRUE,   
+        varwidth = TRUE,   
+        col = c("green","yellow","red"),  
+        names = c("High","Medium","Low")  
+)  
+```
+
+## `curve`
+
+```{r}
+curve (5*x+4 , -2 , 2 , ylab='y')
+curve (x^2 - 2 , add = TRUE , col = "red" , ylab = 'y ')
+```
+
+```{r}
+curve (5*x^2 - 2, ylab = 'y ')
+```
+
+```{r}
+expr <- cos
+curve(expr ,-2*pi, 2*pi,  ylab='cos(x)', xlab='x')
+
+```
+
+## stem
+
+```{r}
+stem(mtcars$mpg)
+```
+
+# Other
+
+## `sample`
+
+x = a vector, from which to choose the sample
+
+n = number of items to choose from 
+
+replace = should sampling be with replacement?
+
+size = size of the sample
+
+prob = vector of probability weights for obtaining the elements of the vector being sampled
+
+```{r}
+data <- 1:10
+sample(data)
+sample(data, size = 5)
+sample(data, size = 5, replace = TRUE)
+sample(data, size = 5, replace = FALSE)
+
+
+
+
+```
