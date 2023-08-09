@@ -40,9 +40,30 @@ values <- 10:100
 as.hexmode(values)
 ```
 
+## `tolower`
+
+Convert upper case letters to lower case
+
+```{r}
+words <- c("ABC", "cde", "Fgh")
+tolower(words)
+````
+
+## `toupper`
+
+Convert lower case letters to upper case
+
+
+```{r}
+words <- c("ABC", "cde", "Fgh")
+toupper(words)
+````
+
+
+
 # Common functions
 
-## append
+## `append`
 
 `x`: the vector the values are to be appended to
 
@@ -102,7 +123,7 @@ Create a frequency table for a vector
 table(mtcars$cyl)
 ```
 
-## IQR
+## `IQR`
 
 ```{r}
 IQR(mtcars$mpg)
@@ -155,11 +176,29 @@ curve(expr ,-2*pi, 2*pi,  ylab='cos(x)', xlab='x')
 
 ```
 
-## stem
+## `stem`
 
 ```{r}
 stem(mtcars$mpg)
 ```
+
+## `barplot`
+
+```{r}
+freq.table <- table(mtcars$gear)
+barplot(freq.table, main = "Frequency by number of gears", xlab = "Number of Gears", ylab="Count", col="purple")
+```
+
+```{r}
+twoway.table <- table(mtcars$cyl, mtcars$gear)
+barplot(twoway.table,
+        main = "Composition of the sample by gears and cyllinders", 
+        xlab = "Number of Gears",
+        ylab= "Count", 
+        col = rainbow(3), 
+        legend = rownames(twoway.table))
+```
+
 
 # Other
 
